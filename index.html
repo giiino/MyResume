@@ -269,7 +269,7 @@
                         <input class="t" type="text" placeholder="Phone" id="p"><br>
                         <textarea name="" id="m" cols="20" rows="8" placeholder="Type your message here..." style="resize:none;"></textarea>
                         <!-- <input type="textarea" placeholder="Type your message here..." style="height: 150px;"><br> -->
-                        <input class="submit1" type="submit" value="Submit">
+                        <input class="submit1" type="submit" value="Submit" id=subbtn> 
                     </form>
                 </div>
             </section>
@@ -340,7 +340,8 @@
   var email=document.getElementById('e')
   var phone=document.getElementById('p')
   var message=document.getElementById('m')
-  function verify() {
+  var subbtn=document.getElementById('subbtn')
+  subbtn.addEventListener('click',function() {
     myReg=/^.+@.+\..{2,3}$/
     if (name.value=='') {
                 alert('請輸入名字');
@@ -362,7 +363,7 @@
         phone:phone.value,
         message:message.value
     });
-        }
+        })
 </script>
 
 </body>
