@@ -318,7 +318,6 @@
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
-
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
 <script>
   // Your web app's Firebase configuration
@@ -336,6 +335,14 @@
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
 
+  const firebase = require("firebase");
+    // Required for side-effects
+    require("firebase/firestore");
+  firebase.initializeApp({
+  apiKey: '### FIREBASE API KEY ###',
+  authDomain: '### FIREBASE AUTH DOMAIN ###',
+  projectId: '### CLOUD FIRESTORE PROJECT ID ###'
+});
   var db = firebase.firestore();
   var name=document.getElementById('n')
   var email=document.getElementById('e')
@@ -358,7 +365,7 @@
                 alert('請輸入電話');
                 return false;
     }
-    db.collection("mywebdata").doc("myweblist").set({
+    db.collection("mywebdata").doc("myweblist").add({
         name:name.value,
         email:email.value,
         phone:phone.value,
