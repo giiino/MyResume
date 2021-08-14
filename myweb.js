@@ -18,16 +18,34 @@
 //     authDomain: '### FIREBASE AUTH DOMAIN ###',
 //     projectId: '### CLOUD FIRESTORE PROJECT ID ###'
 //   });
-  
+function connectdb(n,e,p,meg){ 
   var db = firebase.firestore();
+  db.collection("users").add({
+    first: "Ada",
+    last: "Lovelace",
+    born: 1815
+})
+.then((docRef) => {
+    console.log("Document written with ID: ", docRef.id);
+})
+.catch((error) => {
+    console.error("Error adding document: ", error);
+});
+} 
 
+var flag=0
+console.log(flag);
 function verify() {
+    console.log(flag);
     myReg=/^.+@.+\..{2,3}$/
     if (document.send.n.value=='') {
                 alert('請輸入名字');
                 return false;
+    }else{
+        flag+=1
     }
     if(document.send.e.value.match(myReg)){
+        flag+=1
                 return true;
     }else{
                 alert('請輸入正確Email');
@@ -36,17 +54,14 @@ function verify() {
     if(document.send.p.value==''){
                 alert('請輸入電話');
                 return false;
+    }else{
+        flag+=1
+        
     }
-    db.collection("users").add({
-        first: "Ada",
-        last: "Lovelace",
-        born: 1815
-    })
-    .then((docRef) => {
-        console.log("Document written with ID: ", docRef.id);
-    })
-    .catch((error) => {
-        console.error("Error adding document: ", error);
-    });
+      
+}
+console.log(flag);  
+if (flag==3){
+    connectdb(document.send.n.value,document.send.e.value,document.send.p.value,document.send.m.value)
 }
     
