@@ -94,6 +94,7 @@ if(verify()){
   })
   .then((docRef) => {
       console.log("Document written with ID: ", docRef.id);
+      alert('您已成功送出');
   })
   .catch((error) => {
       console.error("Error adding document: ", error);
