@@ -263,14 +263,23 @@
                 </div>
                 <div class="textbox">
                     <p>Looking forward to answering your email</p>
-                    <form name="send" onsubmit="return verify();">
+                    <form name="send">
+                        <input class="t" type="text" placeholder="Name" id="n"><br>
+                        <input class="t" type="text" placeholder="Email" id="e"><br>
+                        <input class="t" type="text" placeholder="Phone" id="p"><br>
+                        <textarea id="m" id="" cols="20" rows="8" placeholder="Type your message here..." style="resize:none;"></textarea>
+                        <!-- <input type="textarea" placeholder="Type your message here..." style="height: 150px;"><br> -->
+                        <!-- <input class="submit1" type="submit" value="Submit" id="sub"> -->
+                        <p class="submit1" id="sub">Submit</p>
+                    </form>
+                    <!-- <form name="send" onsubmit="return verify();">
                         <input class="t" type="text" placeholder="Name" name="n"><br>
                         <input class="t" type="text" placeholder="Email" name="e"><br>
                         <input class="t" type="text" placeholder="Phone" name="p"><br>
                         <textarea name="m" id="" cols="20" rows="8" placeholder="Type your message here..." style="resize:none;"></textarea>
-                        <!-- <input type="textarea" placeholder="Type your message here..." style="height: 150px;"><br> -->
+                       
                         <input class="submit1" type="submit" value="Submit">
-                    </form>
+                    </form> -->
                 </div>
             </section>
           </div>

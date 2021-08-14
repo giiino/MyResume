@@ -33,35 +33,70 @@ function connectdb(n,e,p,meg){
 });
 } 
 
-var flag=0
-console.log(flag);
-function verify() {
-    console.log(flag);
+// function verify() {
+//     myReg=/^.+@.+\..{2,3}$/
+//     if (document.send.n.value=='') {
+//                 alert('請輸入名字');
+//                 return false;
+//     }else{
+        
+//     }
+//     if(document.send.e.value.match(myReg)){
+//                 return true;
+//     }else{
+//                 alert('請輸入正確Email');
+//                 return false;
+//     }
+//     if(document.send.p.value==''){
+//                 alert('請輸入電話');
+//                 return false;
+//     }
+      
+// }
+// console.log(flag);  
+// if (flag==3){
+//     connectdb(document.send.n.value,document.send.e.value,document.send.p.value,document.send.m.value)
+// }
+
+const name2 = document.getElementById('n')
+const email = document.getElementById('e')
+const phone = document.getElementById('p')
+const mes = document.getElementById('m')
+const submit = document.getElementById('sub')
+
+function verify(){
     myReg=/^.+@.+\..{2,3}$/
-    if (document.send.n.value=='') {
+    if (name2.value=="") {
                 alert('請輸入名字');
                 return false;
-    }else{
-        flag+=1
     }
-    if(document.send.e.value.match(myReg)){
-        flag+=1
-                return true;
-    }else{
+    else if(!email.value.match(myReg)){
                 alert('請輸入正確Email');
                 return false;
     }
-    if(document.send.p.value==''){
+    else if(phone.value==""){
                 alert('請輸入電話');
                 return false;
     }else{
-        flag+=1
-        
+        return true
     }
-      
 }
-console.log(flag);  
-if (flag==3){
-    connectdb(document.send.n.value,document.send.e.value,document.send.p.value,document.send.m.value)
+
+submit.addEventListener('click',function(){
+
+if(verify()){
+    var db = firebase.firestore();
+    db.collection("mywebdata").add({
+      name: name2.value,
+      email: email.value,
+      phone: phone.value,
+      message:mes.value
+  })
+  .then((docRef) => {
+      console.log("Document written with ID: ", docRef.id);
+  })
+  .catch((error) => {
+      console.error("Error adding document: ", error);
+  });
 }
-    
+})

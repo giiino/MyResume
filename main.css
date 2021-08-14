@@ -315,6 +315,7 @@ header .container nav a:hover{
     border: none;
     font-weight: bold;
     float: right;
+    cursor: pointer; 
 }
 #contacts .textbox form .submit1:hover{
     color:#61D0D4;
