@@ -9,15 +9,9 @@
         appId: "1:1083645557291:web:e85ec1f76d44f8ed9dc86e",
         measurementId: "G-1MC4PEGQST"
       };
-      // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
-//     // Initialize Cloud Firestore through Firebase
-//     firebase.initializeApp({
-//     apiKey: '### FIREBASE API KEY ###',
-//     authDomain: '### FIREBASE AUTH DOMAIN ###',
-//     projectId: '### CLOUD FIRESTORE PROJECT ID ###'
-//   });
+
 function connectdb(n,e,p,meg){ 
   var db = firebase.firestore();
   db.collection("users").add({
